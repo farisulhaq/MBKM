@@ -23,12 +23,12 @@
         <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}"   />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
-        
+
         <!-- script
             ================================================== -->
             <script src="{{ url_for('static',filename='js/modernizr.js')}}""></script>
             <script src="{{ url_for('static',filename='js/pace.min.js')}}""></script>
-            
+
             <!-- favicons
             ================================================== -->
             <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon.ico') }}" />
@@ -55,13 +55,13 @@
         <header class="s-header">
             <!-- <div class="header-logo">
                 <a class="site-logo" href="/">
-                    
+
                 </a>
             </div> -->
-            
+
             <nav class="header-nav-wrap">
-                <ul class="header-main-nav">                    
-                    <li class="current"><a class="smoothscroll" href="/" title="intro">{{ navnya[0] }}</a></li>
+                <ul class="header-main-nav">
+                    <li class="current"><a href="{{ url_for('index_page') }}" >{{ navnya[0] }}</a></li>
                     <li><a class="smoothscroll" href="#rekomendasi" title="rekomendasi">{{ navnya[1] }}</a></li>
                     <li><a class="smoothscroll" href="#about" title="about">{{ navnya[2] }}</a></li>
                     <!-- <li><a class="smoothscroll" href="#works" title="works">Works</a></li> -->
@@ -100,7 +100,7 @@
                         <!-- Sistem Rekomendasi film berbasis <i>Hybrid</i> kombinasi metode <i>User-based</i> dan <i>Item-based</i> -->
                         <!-- Sistem Rekomendasi Film dengan Menerapkan Teknik <br />
                         <i>Hybrid-based Collaborative Filtering </i> -->
-                        <!-- Sistem Rekomendasi 
+                        <!-- Sistem Rekomendasi
                         Film <br /> -->
                         <!-- Based In Somewhere. -->
                     </h2>
