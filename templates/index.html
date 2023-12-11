@@ -1,0 +1,214 @@
+{% extends "main_layout.html" %} {% block content %} {% if pesan_error=="aktif" %}
+<script>
+    alert('user tidak tersedia');
+</script>
+{% endif %}
+
+<!-- end s-services -->
+<!-- CTA
+    ================================================== -->
+<section id="rekomendasi" name="rekomendasi" class="s-cta ss-dark">
+    <!-- <section id="rekomendasi" class="s-services ss-dark target-section"> -->
+    <!-- <section id="rekomendasi" name="rekomendasi" class="s-cta ss-dark"> -->
+    <!-- <section id="rekomendasi" class="s-services s-cta ss-dark target-section"> -->
+    <div class="row heading-block heading-block--center mb-2" data-aos="fade-up">
+        <div class="column large-full">
+            <p class="section-desc">Metode</p>
+            <!-- <h2 class="section-heading section-heading--centerbottom">Metode <i>Hybrid Collaborative Filtering</i></h2> -->
+            <!-- <h1 class="section-heading section-heading--centerbottom">Metode <i>Hybrid-based Collaborative Filtering</i></h1> -->
+            <h1 class="section-heading section-heading--centerbottom">Metode <i>Hybrid</i></h1>
+            <div class="column item-service" data-aos="fade-up">
+                <div class="item-service__content">
+                    <p>
+                        Metode yang dipakai adalah metode <b style="color: white"><i>Hybrid</i> [1]</b> dimana metode ini mengkombinasikan antara metode <b style="color: white"><i>User-based Collaborative Filtering </i></b> dengan
+                        menggunakan <b style="color: white"><i> Similarity Function Pearson Correlation Coefficient </i>(PCC), atau <i>Adjusted Mutual Information</i> (AMI) [2],</b> sedangakan untuk metode
+                        <b style="color: white"><i>Item-based Collaborative Filtering </i></b>
+                        dengan menggunakan <b style="color: white"><i> Similarity Function Pearson Correlation Coefficient </i>(PCC), atau <i>Adjusted Mutual Information</i> (AMI) [2]. </b> Dataset yang digunakan dalam penelitian ini adalah
+                        dataset
+                        <b style="color: white"> <a href="https://grouplens.org/datasets/movielens/100k/"> MovieLens-100K</a></b>
+                        dimana data yang digunakan adalah data rating user terhadap item. Alur dari algortima yang dipakai digambarkan pada gambar pada gambar dibawah ini.
+                    </p>
+                </div>
+            </div>
+            <div class="mb-5" data-aos="fade-up" style="background-color: aliceblue; max-width: 700px; margin: auto">
+                <img src="{{ url_for('static', filename='images/IPO-sistem-dengan-similarity-function-umum.svg') }}" alt="IPo" />
+            </div>
+        </div>
+    </div>
+    <div class="row heading-block heading-block--center mt-5" data-aos="fade-up">
+        <div class="column large-full">
+            <h2 class="section-heading section-heading--centerbottom">SIlahkan pilih metode yang akan digunakan</h2>
+        </div>
+    </div>
+    <div style="color: white; margin: auto" class="mt-5">
+        <form action="metode" method="get">
+            <div class="row">
+                <div class="columns" style="margin: auto">
+                    <label for="user" style="color: aliceblue; font-size: large">Pilih Similarity untuk User-based</label>
+                    <select name="user-based" id="user-based" style="color: aliceblue; margin: auto; background-color: black;  font-size: large"">
+                        <!-- <select name="user-based" id="user-based" style="color: black; margin: auto; background-color: aliceblue"> -->
+                        <option value="PCC">Pearson Correlation Coefficient (PCC)</option>
+                        <!-- <option value="ITR">Improved Triangle (ITR)</option> -->
+                        <option value="AMI">Adjusted Mutual Information (AMI)</option>
+                    </select>
+                </div>
+                <div class="columns" style="margin: auto">
+                    <label for="item" style="color: aliceblue; font-size: large"">Pilih Similarity untuk Item-based</label>
+                    <select name="item-based" id="user-based" style="color: aliceblue; margin: auto; background-color: black;  font-size: large"">
+                        <option value="PCC">Pearson Correlation Coefficient (PCC)</option>
+                        <!-- <option value="ITR">Improved Triangle (ITR)</option> -->
+                        <option value="AMI">Adjusted Mutual Information (AMI)</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div>
+                <button type="submit">Rekomendasi</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Card Metode -->
+    <!-- <div class="row card-deck">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">ITR X ITR</h2>
+                <p class="card-text card_penjelasan_metode">Jika memilih metode ini akan dilakukan perhitungan menggunakan <i> Similarity Function ITR X ITR</i></p>
+                <a href="/metode?metode=itrxitr" style="width: 100px; margin: auto">
+                    <p class="tobol_metode">Pilih Metode</p>
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">AMI X AMI</h2>
+                <p class="card-text card_penjelasan_metode">Jika memilih metode ini akan dilakukan perhitungan menggunakan <i> Similarity Function AMI X AMI</i></p>
+                <a href="/metode?metode=amixami" style="width: 100px; margin: auto">
+                    <p class="tobol_metode">Pilih Metode</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row card-deck mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">ITR X AMI</h2>
+                <p class="card-text card_penjelasan_metode">Jika memilih metode ini akan dilakukan perhitungan menggunakan <i> Similarity Function ITR X AMI</i></p>
+                <a href="/metode?metode=itrxami" style="width: 100px; margin: auto">
+                    <p class="tobol_metode">Pilih Metode</p>
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">AMI X ITR</h2>
+                <p class="card-text card_penjelasan_metode">Jika memilih metode ini akan dilakukan perhitungan menggunakan <i> Similarity Function AMI X ITR</i></p>
+                <a href="/metode?metode=amiitr" style="width: 100px; margin: auto">
+                    <p class="tobol_metode">Pilih Metode</p>
+                </a>
+            </div>
+        </div>
+    </div> -->
+</section>
+<!-- end s-cta -->
+
+<section id="about" class="s-about target-section">
+    <div class="about-me">
+        <div class="row heading-block heading-block--center" data-aos="fade-up">
+            <div class="column large-full">
+                <p class="section-desc">Tentang Aplikasi</p>
+            </div>
+        </div>
+        <div class="row heading-block" data-aos="fade-up">
+            <div class="column large-full">
+                <h2 class="section-headingl section-headingl--leftbottom">Tentang Aplikasi</h2>
+            </div>
+        </div>
+        <div class="row about-me__content" data-aos="fade-up">
+            <div class="column large-full about-me__text" style="text-align: justify">
+                <p class="lead">
+                    Aplikasi ini merupakan prototipe penelitian yang dilakukan oleh kami. Pengguna dapat memilih user yang ingin direkomendasikan oleh aplikasi yang nantinya akan menampilkan hasil dari rekomendasi film untuk user yang telah
+                    dipilih.
+                </p>
+
+                <p class="lead">
+                    Aplikasi ini menggunakan algoritma <b><i>Hybrid</i></b> dimana mengkobinasikan 2 metode yaitu<b> <i>User-based Collaborative Filtering </i></b> dengan menggunakan
+                    <b><i> Similarity Function Pearson Correlation Coefficient </i>(PCC), atau <i>Adjusted Mutual Information</i> (AMI)</b> dan <b><i>Item-based Collaborative Filtering </i></b> dengan menggunakan
+                    <b><i> Similarity Function Pearson Correlation Coefficient </i>(PCC), atau <i>Adjusted Mutual Information</i> (AMI). </b>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- end about-me -->
+
+    <div class="about-experience">
+        <div class="row heading-block" data-aos="fade-up">
+            <div class="column large-full">
+                <h2 class="section-headingl section-headingl--leftbottom">Tim Pengembang Aplikasi</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card col-3" data-aos="fade-up" style="width: 30rem">
+                <!-- <div class="col-3"> -->
+                <img class="card-img-top" src="https://avatars.githubusercontent.com/u/78505598?v=4" alt="Card image cap" />
+                <div class="card-body">
+                    <h5 class="card-title">Ahmad Farisul Haq</h5>
+                    <div class="card-text" style="color: black">contact:</div>
+                    <a href="mailto:ahmadfarisulhaqq@gmail.com">
+                        <i class="fas fa-solid fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card col-3" data-aos="fade-up" style="width: 30rem">
+                <!-- <div class="col-3"> -->
+                <img class="card-img-top" src="https://avatars.githubusercontent.com/u/74760595?v=4" alt="Card image cap" />
+                <div class="card-body">
+                    <h5 class="card-title">Alief Akbar Purnama</h5>
+                    <div class="card-text" style="color: black">contact:</div>
+                    <a href="mailto:aliefakbrp@gmail.com">
+                        <i class="fas fa-solid fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card col-3" data-aos="fade-up" style="width: 30rem">
+                <!-- <div class="col-3"> -->
+                <img
+                    class="card-img-top"
+                    src="https://media.licdn.com/dms/image/D4D03AQEe46H4dsxr0A/profile-displayphoto-shrink_800_800/0/1666707318417?e=1703721600&v=beta&t=1WrYwl6bLuGLUduP2x-Y0IAFxcI2LCHrNlBUDk08QZY"
+                    alt="Card image cap"
+                />
+                <div class="card-body">
+                    <h5 class="card-title">Muhammad Kurnia Sani</h5>
+                    <div class="card-text" style="color: black">contact:</div>
+                    <a href="mailto:sani230402@gmail.com">
+                        <i class="fas fa-solid fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card col-3" data-aos="fade-up" style="width: 30rem">
+                <!-- <div class="col-3"> -->
+                <img class="card-img-top" src="https://trunojoyoan.com/rekomendasihotel/static/assets/img/team/ibu_Ifada.jpg" alt="Card image cap" />
+                <div class="card-body">
+                    <h5 class="card-title">Noor Ifada</h5>
+                    <div class="card-text" style="color: black">contact:</div>
+                    <a href="mailto:noor.ifada@trunojoyo.ac.id">
+                        <i class="fas fa-solid fa-envelope fa-lg"></i>
+                    </a>
+                    <a
+                        href="https://au.linkedin.com/in/noor-ifada-202a5b7?challengeId=AQEp0we-9r-36AAAAYw04hrCYY7XN1XtllWw4aHMczGaKAUASSfqShI6S-el7JEti2drJhBDPYsyJn8Yh7wggcimz9c8d7ib5g&submissionId=de901301-efa1-9d17-5426-c78391cbe578&challengeSource=AgFpYOIhSSDKjAAAAYw04iTySsfvb0vRmqvj3k4fx1DejoRMH2-JaAmqLEl8IRs&challegeType=AgE61mlgvDZDuwAAAYw04iT12NwLL2Tz_qbgmmBsO3JYqbP7ya-7xYc&memberId=AgEA5977gBBBrwAAAYw04iT4mOvHg5bTPZPhD--D_-ws3LY&recognizeDevice=AgHpYpWWkY6yVgAAAYw04iT8fN8vqJNsw2BDj4vD7YSuPsiPgr1B"
+                    >
+                        <i class="fa-brands fa-linkedin-in fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end about-experience -->
+    <!-- {{ result }} -->
+</section>
+<!-- end s-about -->
+
+{% endblock %}

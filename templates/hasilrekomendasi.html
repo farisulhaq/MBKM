@@ -1,0 +1,69 @@
+{% extends "main_layout.html" %} {% block content %}
+<section id="rekomendasi" class="s-services ss-dark target-section">
+    <div class="shadow-overlay"></div>
+
+    <div class="row heading-block heading-block--center" data-aos="fade-up">
+        <div class="column large-full">
+            <!-- <h2 class="section-desc section-heading section-heading--centerbottom">Rekomendasi Film untuk user {{ user }} dengan top-n {{ tetangga }}</h2> -->
+            <h2 class="section-desc section-heading section-heading--centerbottom">Rekomendasi Film untuk user {{ user }} dengan top-n {{ banyak_data_rekomendasi }}</h2>
+            <!-- <p class="section-desc">10 Rekomendasi Film untuk User {{ user }} Tonton</p> -->
+        </div>
+    </div>
+    <!-- end heading-block -->
+
+    <div class="row services-list block-large-1-5 block-medium-1-2 block-tab-full datarekomendasiscroll" data-aos="fade-up">
+        {% for rekomendasi_top_N in top_n %}
+        <div class="column item-service">
+            <div class="item-service__content">
+                <h4 class="item-title">{{ rekomendasi_top_N }}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+        <div class="carousel-inner row services-list block-large-1-5 block-medium-1-2 block-tab-full">
+        {% for rekomendasi_top_N in range(top_n|length) %}
+        {% if rekomendasi_top_N%10==0 %}
+        {% if rekomendasi_top_N==0 %}
+        <div class="carousel-item active">
+            {% else %}
+        <div class="carousel-item">
+        {% endif %}
+        {% endif %}
+            <div class="column item-service">
+                <div class="item-service__content">
+                    <h4 class="item-title">{% print(top_n[rekomendasi_top_N]) %}</h4>
+                </div>
+            </div>
+            {% if rekomendasi_top_N%10==9 %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </button>
+      </div>
+    </div> -->
+    <!-- end services-list -->
+</section>
+<!-- end s-services -->
+
+<!-- CTA
+    ================================================== -->
+<section class="s-cta ss-dark">
+    <div class="row heading-block heading-block--center" data-aos="fade-up">
+        <div class="column large-full">
+            <!-- <form action="" method="get"></form> -->
+            <h2 class="section-desc"><a href="metrik_evaluasi?metod_item={{ metod_item }}&metod_user={{ metod_user }}&user={{ user }}&tetangga={{ tetangga }}">Lihat Detail</a></h2>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

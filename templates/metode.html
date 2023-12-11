@@ -1,0 +1,72 @@
+{% extends "main_layout.html" %} {% block content %} {% if pesan_error=="aktif" %}
+<script>
+    alert('user tidak tersedia');
+</script>
+{% endif %}
+
+<!-- end s-services -->
+<!-- CTA
+    ================================================== -->
+<section id="rekomendasi" name="rekomendasi" class="s-cta ss-dark">
+    <!-- <section id="rekomendasi" class="s-services ss-dark target-section"> -->
+    <!-- <section id="rekomendasi" name="rekomendasi" class="s-cta ss-dark"> -->
+    <!-- <section id="rekomendasi" class="s-services s-cta ss-dark target-section"> -->
+    <div class="row heading-block heading-block--center mb-5" data-aos="fade-up">
+        <div class="column large-full">
+            <!-- <p class="section-desc">Metode</p> -->
+            <p class="section-desc">Metode</p>
+            <!-- <h2 class="section-heading section-heading--centerbottom">Metode <i>Hybrid Collaborative Filtering</i></h2> -->
+            <h1 class="section-heading section-heading--centerbottom">Metode <i>Hybrid</i></h1>
+            <div class="column item-service" data-aos="fade-up">
+                <div class="item-service__content">
+                    <p>
+                        Metode yang dipakai adalah metode <b style="color: white"><i>Hybrid</i></b> dimana metode ini menggabungkan antara metode
+                        <b style="color: white"><i>User-based Collaborative Filtering </i> dengan <i>Similarity Function {{ metode_usernya }}</i> dan <i>Item-based Collaborative Filtering {{ metode_itemnya }}</i></b
+                        >. Dengan menggunakan <b style="color: white"><i>Similarity Function {{ metodenya }}</i></b
+                        >. Dataset yang digunakan dalam penelitian ini adalah dataset<b style="color: white"> <a href="https://grouplens.org/datasets/movielens/100k/"> MovieLens-100K</a></b>
+                        dimana data yang digunakan adalah data rating user terhadap item.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- form rekomendasi -->
+    <div class="row heading-block heading-block--center mt-3" data-aos="fade-up">
+        <div class="column large-full">
+            <h2 class="section-heading section-heading--centerbottom">Silahkan pilih User untuk diketahui Film yang direkomendasikan kepada user tersebut</h2>
+        </div>
+    </div>
+    <form action="rekomendasi" method="get" style="color: aliceblue; padding: 0" data-aos="fade-up">
+        <input type="hidden" value="{{ metod_item }}" name="metod_item" id="metod_item" />
+        <input type="hidden" value="{{ metod_user }}" name="metod_user" id="metod_user" />
+        <select name="user" id="user" class="row services-list col-12 rounded" aria-label="Default select example" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); width: 500px">
+            <option selected value="1">Silahkan Pilih User</option>
+            {% for bnyk_user in banyak_user %}
+            <option value="{{ bnyk_user }}">{{ bnyk_user }}</option>
+            {% endfor %}
+        </select>
+        <select name="tetangga" id="tetangga" class="row services-list col-12 rounded" aria-label="Default select example" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); width: 500px">
+            <option selected value="1">Silahkan Pilih Jumlah Rekomendasi</option>
+            {% for bnyk_n in banyak_n %}
+            <option value="{{ bnyk_n }}">{{ bnyk_n }}</option>
+            {% endfor %}
+        </select>
+        <br />
+        <input type="submit" value="Submit" />
+    </form>
+    <!-- end heading-block -->
+
+    <!-- <div class="row cta-content" data-aos="fade-up">
+                    <div class="column large-full">
+                        <p>We highly recommend <a href="https://www.dreamhost.com/r.cgi?287326">DreamHost</a>. Powerful web and Wordpress hosting. Guaranteed. Starting at $2.95 per month.</p>
+    
+                        <a href="https://www.dreamhost.com/r.cgi?287326" class="btn full-width">Get Started</a>
+                    </div>
+                </div> -->
+    <!-- end ad-content -->
+</section>
+<!-- end s-cta -->
+
+<!-- end s-about -->
+
+{% endblock %}

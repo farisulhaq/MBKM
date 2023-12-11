@@ -1,0 +1,257 @@
+{% extends "main_layout.html" %} {% block content %}
+<section id="about" class="s-about target-section">
+    <!-- end about-me -->
+    <!-- <div class="about-me"> -->
+    <div class="about-experience">
+        <div class="row heading-block heading-block--center mb-5" data-aos="fade-up">
+            <div class="column large-full">
+                <p class="section-desc">Metrik Evaluasi</p>
+            </div>
+            <p class="lead">
+                Mengukur performa metode sistem rekomendasi untuk <i>user</i> {{ user }} berdasarkan precision@{{ banyak_data_rekomendasi }}, recall@{{ banyak_data_rekomendasi }}, f1-score@{{ banyak_data_rekomendasi }}, DCG@{{ banyak_data_rekomendasi }}, dan NDCG@{{ banyak_data_rekomendasi }} yaitu dengan membandingkan Data Rekomendasi dengan Data Ground-truth. <br />precision@{{ banyak_data_rekomendasi }} = {{ precision }}, recall@{{ banyak_data_rekomendasi }} = {{ recall }},
+                f1@{{ banyak_data_rekomendasi }} = {{ f1 }}, dcg@{{ banyak_data_rekomendasi }} = {{ dcg }}, Ndcg@{{ banyak_data_rekomendasi }} = {{ ndcg }}
+            </p>
+            <!-- <div class="lead" style="border: 2px solid red; padding: 10px ;font-size:medium; width: 20000px;"> -->
+            <div class="lead" style="border: 2px solid red; padding: 10px ;font-size:medium; width:1224px; margin:auto;">
+                <table>
+                    <!-- TOP N -->
+                    <tr>
+                        <th colspan="3">Persamaan :</th>
+                        <th colspan="2">Definisi :</th>
+                    </tr>
+                    <tr>
+                        <!-- TOP N -->
+                        <!-- <td>1.</td> -->
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation">
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>T</mi><mi>o</mi><mi>p</mi><mrow><mo>(</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow></mstyle></math></span></span>
+                        </td>
+                        <td> 
+                            =
+                        </td>
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><mo>{</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mrow><mo>(</mo><mn>1</mn><mo>)</mo></mrow><mo>,</mo><mo>...</mo><mo>,</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mrow><mo>(</mo><mi>N</mi><mo>)</mo></mrow><mo>}</mo></mrow></mstyle></math></span></span> 
+                        </td>
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>N</mi></mstyle></math></span></span>
+                        </td>
+                        <td>=</td>
+                        <td> Jumlah Rekomendasi</td>
+                    </tr>
+                    <tr>
+                        <!-- PRECISION -->
+                        <!-- <td>2.</td> -->
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>P</mi><mi>r</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mrow><mo>(</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow></mstyle></math></span></span>
+                        </td>
+                        <td> 
+                            =
+                        </td>
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mfrac><mrow><mrow><mo>|</mo><mi>T</mi><mi>o</mi><mi>p</mi><mrow><mo>(</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow><mo>∩</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>|</mo></mrow></mrow><mrow><mi>N</mi></mrow></mfrac></mstyle></math></span></span>
+                        </td>
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><mi>u</mi></mrow></mstyle></math></span></span> 
+                        </td>
+                        <td>=</td>
+                        <td> Target User</td>
+                    </tr>
+                    <tr>
+                        <!-- RECALL -->
+                        <!-- <td>3.</td> -->
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>R</mi><mi>e</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>l</mi><mrow><mo>(</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow></mstyle></math></span></span>
+                        </td>
+                        <td> 
+                            =
+                        </td>
+                        <td>
+                            <!-- <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mfrac><mrow><mrow><mo>|</mo><mi>T</mi><mi>o</mi><mi>p</mi><mrow><mo>(</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow><mo>∩</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>|</mo></mrow></mrow><mrow><mi>|</mi><mi>T</mi><mi>e</mi><mi>s</mi><msub></msub><mi>t</mi><mrow><mi>u</mi></msub></mrow><mi>|</mi></mfrac></mstyle></math></span></span> -->
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mfrac><mrow><mrow><mo>|</mo><mi>T</mi><mi>o</mi><mi>p</mi><mrow><mo>(</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow><mo>∩</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>|</mo></mrow></mrow><mrow><mi>|</mi><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>|</mo></mrow></mfrac></mstyle></math></span></span>
+                        </td>
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub></mstyle></math></span></span> 
+                        </td>
+                        <td>
+                            = 
+                        </td>
+                        <td>
+                            Data Rekomendasi Film User <span class="MJX_Assistive_MathML" role="presentation">
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>u</mi></mstyle></math></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- F1-Score -->
+                        <!-- <td>4.</td> -->
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>F</mi><mi>1</mi><mi>-</mi><mi>S</mi><mi>c</mi><mi>o</mi><mi>r</mi><mi>e</mi><mrow><mo>(</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow></mstyle></math></span></span>
+                        </td>
+                        <td> 
+                            =
+                        </td>
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mfrac><mrow><mi>2</mi><mi>*</mi><mi>R</mi><mi>e</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>l</mi><mrow><mo>(</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow><mi>*</mi><mi>P</mi><mi>r</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mrow><mo>(</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow></mrow>
+                                <mrow><mi>R</mi><mi>e</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>l</mi><mrow><mo>(</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow><mi>+</mi><mi>P</mi><mi>r</mi><mi>e</mi><mi>c</mi><mi>i</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mrow><mo>(</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow></span>
+                        </td>
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation">
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>T</mi><mi>o</mi><mi>p</mi><mrow><mo>(</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow></mstyle></math></span></span>                        
+                        </td>
+                        <td>
+                            = 
+                        </td>
+                        <td>
+                            Top N Rekomendasi Film untuk user <span class="MJX_Assistive_MathML" role="presentation">
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>u</mi></mstyle></math></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- DCG -->
+                        <!-- <td>5.</td> -->
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>D</mi><mi>C</mi><mi>G</mi><mrow><mo>(</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow></mstyle></math></span></span>
+                        </td>
+                        <td> 
+                            =
+                        </td>
+                        <td>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover></mrow><mfrac><mn>1</mn><mrow><msub><mi>log</mi><mrow><mn>2</mn></mrow></msub><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>n</mi><mo>)</mo></mrow></mrow></mfrac><mo>*</mo><mo>Π</mo><mrow><mo>(</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mrow><mo>(</mo><mi>n</mi><mo>)</mo></mrow><mo>∈</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>)</mo></mrow></mstyle></math></span></span>
+                        </td>
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mstyle></math></span></span>
+                        </td>
+                        <td>
+                            = 
+                        </td>
+                        <td>
+                            Data Test (Ground-truth) dari user <span class="MJX_Assistive_MathML" role="presentation">
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>u</mi></mstyle></math></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- IDCG -->
+                        <!-- <td>6.</td> -->
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><MI>I</MI><mi>D</mi><mi>C</mi><mi>G</mi><mrow><mo>(</mo><mi>N</mi><mo>)</mo></mrow></mstyle></math></span></span>
+                        </td>
+                        <td> 
+                            =
+                        </td>
+                        <td>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><munderover><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover></mrow><mfrac><mn>1</mn><mrow><msub><mi>log</mi><mrow><mn>2</mn></mrow></msub><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>n</mi><mo>)</mo></mrow></mrow></mfrac><mo></mrow></mstyle></math></span></span>
+                        </td>
+                        <td>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mo>Π</mo><mrow><mo>(</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mrow><mo>(</mo><mi>n</mi><mo>)</mo></mrow><mo>∈</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>)</mo></mrow></mstyle></math></span></span>
+                        </td>
+                        <td>
+                            =
+                        </td>
+                        <td>
+                            Kondisi dimana ketika True bernilai 1 sedangkan False bernilai 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- NDCG -->
+                        <!-- <td>7.</td> -->
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mi>N</mi><mi>D</mi><mi>C</mi><mi>G</mi><mrow><mo>(</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow></mstyle></math></span></span>
+                        </td>
+                        <td> 
+                            =
+                        </td>
+                        <td>
+                            <span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mfrac><mrow><mi>D</mi><mi>C</mi><mi>G</mi><mrow><mo>(</mo><mi>T</mi><mi>e</mi><mi>s</mi><msub><mi>t</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><msub><mi>l</mi><mrow><mi>u</mi></mrow></msub><mo>,</mo><mi>N</mi><mo>)</mo></mrow></mrow></mrow><mrow><mi>I</mi><mi>D</mi><mi>C</mi><mi>G</mi><mrow><mo>(</mo><mi>N</mi><mo>)</mo></mrow></mrow></mfrac></mstyle></math></span></span>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+        </div>
+        <!-- hasil metrix -->
+        <div class="row about-experience__timeline pt-5">
+            <div class="column large-half tab-full" data-aos="fade-up">
+                <div class="timeline">
+                    <div class="timeline__icon-wrap">
+                        <span class="timeline__icon timeline__icon--work"></span>
+                    </div>
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <!-- <p class="timeline__timeframe">July 2018 - Present</p> -->
+                            <h3 class="item-title"><b>Data Rekomendasi</b></h3>
+                            <h5>
+                                Data hasil rekomendasi untuk target user yang dihasilkan dari pemodelan metode. Dengan banyak rekomendasi <b> {{ banyak_data_rekomendasi }} </b>, dan banyak data irisan sebanyak
+                                <b>{{ banyak_data_irisan }}</b>
+                            </h5>
+                        </div>
+                        <div class="timeline__desc datatrainscroll">
+                            <ol>
+                                {% for rekom in top_n %} {% if rekom in data_ground_truth %}
+                                <li style="background: #cf1767"><b style="color: rgb(255, 255, 255); background: #cf1767">{{ rekom }}</b></li>
+                                {% else %}
+                                <li>{{ rekom }}</li>
+                                {% endif %} {% endfor %}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="column large-half tab-full" data-aos="fade-up">
+                <div class="timeline">
+                    <div class="timeline__icon-wrap">
+                        <span class="timeline__icon timeline__icon--education"></span>
+                    </div>
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <!-- <p class="timeline__timeframe">July 2011 - June 2015</p> -->
+                            <h3 class="item-title"><b>Data Ground-truth</b></h3>
+                            <h5>Data test dari target user yang didapatkan dari dataset dan untuk digunakan di dalam evaluasi hasil rekomendasi metode. Data Ground-truth sebanyak <b>{{ banyak_data_ground_truth }}</b></h5>
+                        </div>
+                        <div class="timeline__desc datatrainscroll">
+                            <ol>
+                                {% for ground_truth in data_ground_truth %}{% if ground_truth in top_n %}
+                                <li style="background: #cf1767"><b style="color: rgb(255, 255, 255); background: #cf1767">{{ ground_truth }}</b></li>
+                                {% else %}
+                                <li>{{ ground_truth }}</li>
+                                {% endif %} {% endfor %}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column large-half tab-full" data-aos="fade-up">
+                <div class="timeline">
+                    <div class="timeline__icon-wrap">
+                        <span class="timeline__icon timeline__icon--datatrain"></span>
+                    </div>
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <!-- <p class="timeline__timeframe">July 2011 - June 2015</p> -->
+                            <h3 class="item-title"><b>Data Training</b></h3>
+                            <h5>Data item yang telah diberi rating oleh target user yang didapatkan dari dataset <b> {{ banyak_data_train }} </b></h5>
+                        </div>
+                        <div class="timeline__desc datatrainscroll">
+                            <ol>
+                                {% for train in data_train %}
+                                <li>{{ train }}</li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end about-experience -->
+</section>
+<!-- end s-cta -->
+
+{% endblock %}
