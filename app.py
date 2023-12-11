@@ -11,13 +11,9 @@ from metode.matrikEvaluasi import *
 
 app = Flask(__name__)
 # path = 'D:\MBKM'
-path = ''
-
-# hybrid
-
+path = '/home/farsulhaq/mbkm'
 
 names = ['user_id', 'item_id', 'rating', 'timestime']
-path = './'
 columns = ["movie_id", "movie_title", "release_date", "video_release_date", "IMDb_URL", "unknown", "action", "adventure", "animation", "children's",
            "comedy", "crime", "documentary", "drama", "fantasy", "film-noir", "horror", "musical", "mystery", "romance", "sci-fi", "thriller", "war", "western"]
 movie_data = pd.read_csv(os.path.join(path, 'datasets/ml-100k', 'u.item'),
