@@ -10,8 +10,9 @@ from metode.sistemRekomendasi import *
 from metode.matrikEvaluasi import *
 
 app = Flask(__name__)
-# path = 'D:\MBKM'
-path = '/home/farsulhaq/mbkm'
+
+# path = '' # local
+path = '/home/farsulhaq/mbkm'  # hosting
 
 names = ['user_id', 'item_id', 'rating', 'timestime']
 columns = ["movie_id", "movie_title", "release_date", "video_release_date", "IMDb_URL", "unknown", "action", "adventure", "animation", "children's",
