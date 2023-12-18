@@ -11,8 +11,8 @@ from metode.matrikEvaluasi import *
 
 app = Flask(__name__)
 
-path = ''  # local
-# path = '/home/farsulhaq/mbkm'  # hosting
+# path = ''  # local
+path = '/home/farsulhaq/mbkm'  # hosting
 
 names = ['user_id', 'item_id', 'rating', 'timestime']
 columns = ["movie_id", "movie_title", "release_date", "video_release_date", "IMDb_URL", "unknown", "action", "adventure", "animation", "children's",
