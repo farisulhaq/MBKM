@@ -1,75 +1,76 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-    <head>
-        <!--- basic page needs
-    ================================================== -->
-        <meta charset="utf-8" />
-        <title>{{ judulnya }}</title>
-        <meta name="description" content="" />
-        <meta name="author" content="" />
 
-        <!-- mobile specific metas
+<head>
+    <!--- basic page needs
     ================================================== -->
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>{{ judulnya }}</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-        <!-- CSS
+    <!-- mobile specific metas
     ================================================== -->
-        <!-- <link rel="stylesheet" href= 'css/base.css'  />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS
+    ================================================== -->
+    <!-- <link rel="stylesheet" href= 'css/base.css'  />
         <link rel="stylesheet" href= 'css/vendor.css'  />
         <link rel="stylesheet" href= 'css/main.css'  /> -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/base.css') }}"   />
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/vendor.css') }}"   />
-        <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}"   />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/vendor.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
 
-        <!-- script
+    <!-- script
             ================================================== -->
-            <script src="{{ url_for('static',filename='js/modernizr.js')}}""></script>
-            <script src="{{ url_for('static',filename='js/pace.min.js')}}""></script>
+    <script src="{{ url_for('static',filename='js/modernizr.js')}}""></script>
+            <script src=" {{ url_for('static',filename='js/pace.min.js' )}}""></script>
 
-            <!-- favicons
+    <!-- favicons
             ================================================== -->
-            <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon.ico') }}" />
-            <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}" />
-            <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-            <!-- latex -->
-            <!-- <link rel="stylesheet" href="https://latex.now.sh/style.css"> -->
-            <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
-            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-            <script id="MathJax-script" async
-                src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-            </script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    </head>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon.ico') }}" />
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- latex -->
+    <!-- <link rel="stylesheet" href="https://latex.now.sh/style.css"> -->
+    <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
-    <body id="top">
-        <div id="preloader">
-            <div id="loader"></div>
-        </div>
+<body id="top">
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
 
-        <!-- site header
+    <!-- site header
     ================================================== -->
-        <header class="s-header">
-            <!-- <div class="header-logo">
+    <header class="s-header">
+        <!-- <div class="header-logo">
                 <a class="site-logo" href="/">
 
                 </a>
             </div> -->
 
-            <nav class="header-nav-wrap">
-                <ul class="header-main-nav">
-                    <li class="current"><a href="{{ url_for('index_page') }}" >{{ navnya[0] }}</a></li>
-                    <li><a class="smoothscroll" href="#rekomendasi" title="rekomendasi">{{ navnya[1] }}</a></li>
-                    <li><a class="smoothscroll" href="#about" title="about">{{ navnya[2] }}</a></li>
-                    <!-- <li><a class="smoothscroll" href="#works" title="works">Works</a></li> -->
-                    <!-- <li><a class="smoothscroll" href="#contact" title="contact us">Say Hello</a></li> -->
-                </ul>
+        <nav class="header-nav-wrap">
+            <ul class="header-main-nav">
+                <li class="current"><a href="{{ url_for('index_page') }}">{{ navnya[0] }}</a></li>
+                <li><a class="smoothscroll" href="#rekomendasi" title="rekomendasi">{{ navnya[1] }}</a></li>
+                <li><a class="smoothscroll" href="#about" title="about">{{ navnya[2] }}</a></li>
+                <!-- <li><a class="smoothscroll" href="#works" title="works">Works</a></li> -->
+                <!-- <li><a class="smoothscroll" href="#contact" title="contact us">Say Hello</a></li> -->
+            </ul>
 
-                <!-- Header social -->
-                <!-- <ul class="header-social">
+            <!-- Header social -->
+            <!-- <ul class="header-social">
                     <li>
                         <a href="#0"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                     </li>
@@ -83,124 +84,143 @@
                         <a href="#0"><i class="fab fa-behance" aria-hidden="true"></i></a>
                     </li>
                 </ul> -->
-            </nav>
+        </nav>
 
-            <a class="header-menu-toggle" href="#"><span>Menu</span></a>
-        </header>
-        <!-- end s-header -->
+        <a class="header-menu-toggle" href="#"><span>Menu</span></a>
+    </header>
+    <!-- end s-header -->
 
-        <!-- intro
+    <!-- intro
     ================================================== -->
-        <section id="intro" class="s-intro target-section">
-            <div class="row intro-content">
-                <div class="column large-9 mob-full intro-text">
-                    <h3>Halo, {{ nama_user }}</h3>
-                    <h2>
-                        Aplikasi Sistem Rekomendasi Film Berbasis <i>Hybrid</i> Kombinasi Metode <i>User-based</i> dan <i>Item-based</i>
-                        <!-- Sistem Rekomendasi film berbasis <i>Hybrid</i> kombinasi metode <i>User-based</i> dan <i>Item-based</i> -->
-                        <!-- Sistem Rekomendasi Film dengan Menerapkan Teknik <br />
+    <section id="intro" class="s-intro target-section">
+        <div class="row intro-content">
+            <div class="column large-9 mob-full intro-text">
+                <h3>Halo, {{ nama_user }}</h3>
+                <h2>
+                    Aplikasi Sistem Rekomendasi Film Berbasis <i>Hybrid</i> Kombinasi Metode <i>User-based</i> dan
+                    <i>Item-based</i>
+                    <!-- Sistem Rekomendasi film berbasis <i>Hybrid</i> kombinasi metode <i>User-based</i> dan <i>Item-based</i> -->
+                    <!-- Sistem Rekomendasi Film dengan Menerapkan Teknik <br />
                         <i>Hybrid-based Collaborative Filtering </i> -->
-                        <!-- Sistem Rekomendasi
+                    <!-- Sistem Rekomendasi
                         Film <br /> -->
-                        <!-- Based In Somewhere. -->
-                    </h2>
-                </div>
-
-                <div class="intro-scroll">
-                    <a href="#about" class="intro-scroll-link smoothscroll" style="color: white;"> Scroll Untuk Melanjutkan </a>
-                </div>
-
-                <div class="intro-grid"></div>
-                <div class="intro-pic"></div>
+                    <!-- Based In Somewhere. -->
+                </h2>
             </div>
-            <!-- end row -->
-        </section>
-        <!-- end intro -->
 
-        <!-- about
+            <div class="intro-scroll">
+                <a href="#about" class="intro-scroll-link smoothscroll" style="color: white;"> Scroll Untuk Melanjutkan
+                </a>
+            </div>
+
+            <div class="intro-grid"></div>
+            <div class="intro-pic"></div>
+        </div>
+        <!-- end row -->
+    </section>
+    <!-- end intro -->
+
+    <!-- about
     ================================================== -->
-        <!-- end s-about -->
+    <!-- end s-about -->
 
-        <!-- services
+    <!-- services
             Rekomendasi
     ================================================== -->
-            {% block content %}
-            {% endblock %}
-        <!-- end s-cta -->
+    {% block content %}
+    {% endblock %}
+    <!-- end s-cta -->
 
 
-        <!-- footer
+    <!-- footer
     ================================================== -->
-        <footer>
-            <div class="row">
-                <!-- <div class="column large-full d-flex justify-content-center"> -->
-                <div class="column justify-content-center">
-                    <p style="color: white; margin:0">Referensi :</p>
-                    <table>
-                        <tr>
-                            <td style="color: white; margin-top: 0;">[1]</td>
-                            <td style="color: white; margin:0">Aljunid, M.F. and Dh, M. (2020) ‘An Efficient Deep Learning Approach for Collaborative Filtering Recommender System’, Procedia Computer Science, 171, pp. 829–836. https://doi.org/10.1016/j.procs.2020.04.090.</td>
-                        </tr>
-                        <tr>
-                            <td style="color: white;">[2]</td>
-                            <td style="color: white; margin:0">Fkih, F. (2021). Similarity measures for Collaborative Filtering-based Recommender Systems: Review and experimental comparison. In Journal of King Saud University - Computer and Information Sciences. https://doi.org/10.1016/j.jksuci.2021.09.014</td>
-                        </tr>
-                    </table>
-                    <!-- <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span> -->
-                </div>
+    <footer>
+        <!-- <div class="column large-full d-flex justify-content-center"> -->
+        <div class="container">
+            <p style="color: white; margin:0">Referensi :</p>
+            <table class="text-light">
+                <tr>
+                    <td class="align-top">[1]</td>
+                    <td class="link-light text-justify">M. F. Aljunid and M. D. Huchaiah, “An efficient hybrid
+                        recommendation model based on collaborative filtering recommender systems,” <i>CAAI Trans Intell
+                            Technol</i>, vol. 6, no. 4, pp. 480–492, 2021, <a target="_blank"
+                            href="https://doi.org/10.1049/cit2.12048">doi: https://doi.org/10.1049/cit2.12048</a>.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-top">[2]</td>
+                    <td class="link-light text-justify">F. Fkih, “Similarity Measures for Collaborative Filtering-based
+                        Recommender Systems: Review and Experimental Comparison,” <i>Journal of King Saud University -
+                            Computer and Information Sciences</i>, vol. 34, pp. 7645-7669, 2021, <a target="_blank" href="https://doi.org/10.1016/j.jksuci.2021.09.014">doi: https://doi.org/10.1016/j.jksuci.2021.09.014</a>.
+                    </td>
+                </tr>
+            </table>
 
-                <div class="ss-go-top">
-                    <a class="smoothscroll" title="Back to Top" href="#top"></a>
-                </div>
+            
+            <!-- <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span> -->
+        </div>
+
+        <div class="ss-go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top"></a>
+        </div>
+    </footer>
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
             </div>
-        </footer>
 
-        <!-- photoswipe background
-    ================================================== -->
-        <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
-            <div class="pswp__bg"></div>
-            <div class="pswp__scroll-wrap">
-                <div class="pswp__container">
-                    <div class="pswp__item"></div>
-                    <div class="pswp__item"></div>
-                    <div class="pswp__item"></div>
-                </div>
-
-                <div class="pswp__ui pswp__ui--hidden">
-                    <div class="pswp__top-bar">
-                        <div class="pswp__counter"></div>
-                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title="Share"></button>
-                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                        <div class="pswp__preloader">
-                            <div class="pswp__preloader__icn">
-                                <div class="pswp__preloader__cut">
-                                    <div class="pswp__preloader__donut"></div>
-                                </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button
+                        class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button
+                        class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                        <div class="pswp__share-tooltip"></div>
-                    </div>
-                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-                    <div class="pswp__caption">
-                        <div class="pswp__caption__center"></div>
-                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button
+                    class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
                 </div>
             </div>
         </div>
-        <!-- end photoSwipe background -->
+    </div>
+    <!-- end photoSwipe background -->
 
-        <!-- Java Script
+    <!-- Java Script
     ================================================== -->
-        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
-        <script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js')}}""></script>
-        <script src="{{ url_for('static',filename='js/plugins.js')}}""></script>
-        <script src="{{ url_for('static',filename='js/main.js')}}""></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    </body>
+    <script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js')}}""></script>
+        <script src=" {{ url_for('static',filename='js/plugins.js' )}}""></script>
+    <script src="{{ url_for('static',filename='js/main.js')}}""></script>
+        <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>

@@ -102,11 +102,11 @@ a {
     transition: all 0.1s ease-in-out;
 }
 
-a:hover,
+/* a:hover,
 a:focus,
 a:active {
-    color: #000000;
-}
+    color: #fff;
+} */
 
 a:hover,
 a:active {

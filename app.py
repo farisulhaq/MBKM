@@ -11,8 +11,8 @@ from metode.matrikEvaluasi import *
 
 app = Flask(__name__)
 
-# path = '' # local
-path = '/home/farsulhaq/mbkm'  # hosting
+path = ''  # local
+# path = '/home/farsulhaq/mbkm'  # hosting
 
 names = ['user_id', 'item_id', 'rating', 'timestime']
 columns = ["movie_id", "movie_title", "release_date", "video_release_date", "IMDb_URL", "unknown", "action", "adventure", "animation", "children's",
@@ -506,7 +506,6 @@ def rekomendasi_page():
     item_data_used_test = rating_matrix.loc[id_user].to_numpy()
     item_movie_norated_test = np.where(item_data_used_test == 0)[0]+1
     item_movie_norated_test.tolist()
-
     pred_item_datas = np.array(
         [
             # item,
@@ -951,4 +950,4 @@ def metrik_evaluasi_page():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(use_reloader=True)
