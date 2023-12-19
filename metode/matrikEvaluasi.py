@@ -17,19 +17,13 @@ def f1Score(ground_truth, topN, n=1):
 
 
 def idcg(n):
-    print("idcg", np.sum((1 / np.log2(1 + np.array(list(range(1, n+1)))))))
-    print("nparray idcg", np.array(list(range(1, n+1))))
     return np.sum((1 / np.log2(1 + np.array(list(range(1, n+1))))))
 
 
 def dcg(ground_truth, topN, n):
     a = np.array([(1 / np.log2(1 + x)) for x in range(1, n+1)])
-    print("a dcg", a)
-#     b = np.array([np.sum(np.where(tp == ground_truth, 1, 0)) for tp in topN[:n]])
-#     b = np.array([np.sum(np.where(tp in ground_truth, 1, 0)) for tp in topN[:n]])
     b = np.array([np.sum(np.where(tp == np.array(ground_truth), 1, 0))
                  for tp in topN[:n]])
-    print(b)
     return np.sum(a*b)
 
 

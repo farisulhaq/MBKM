@@ -181,8 +181,8 @@
                             <!-- <p class="timeline__timeframe">July 2018 - Present</p> -->
                             <h3 class="item-title"><b>Data Rekomendasi</b></h3>
                             <h5>
-                                Data hasil rekomendasi untuk target user yang dihasilkan dari pemodelan metode. Dengan banyak rekomendasi <b> {{ banyak_data_rekomendasi }} </b>, dan banyak data irisan sebanyak
-                                <b>{{ banyak_data_irisan }}</b>
+                                Data hasil rekomendasi untuk target user yang dihasilkan dari pemodelan metode. Dengan banyak rekomendasi <b> {{ top_n|length }} </b>, dan banyak data irisan sebanyak
+                                <b>{{ data_irisan|length }}</b>
                             </h5>
                         </div>
                         <div class="timeline__desc datatrainscroll">
@@ -210,7 +210,7 @@
                         <div class="timeline__header">
                             <!-- <p class="timeline__timeframe">July 2011 - June 2015</p> -->
                             <h3 class="item-title"><b>Data Ground-truth</b></h3>
-                            <h5>Data test dari target user yang didapatkan dari dataset dan untuk digunakan di dalam evaluasi hasil rekomendasi metode. Data Ground-truth sebanyak <b>{{ banyak_data_ground_truth }}</b></h5>
+                            <h5>Data test dari target user yang didapatkan dari dataset dan untuk digunakan di dalam evaluasi hasil rekomendasi metode. Data Ground-truth sebanyak <b>{{ data_ground_truth|length }}</b></h5>
                         </div>
                         <div class="timeline__desc datatrainscroll">
                             <ol>
@@ -236,7 +236,7 @@
                         <div class="timeline__header">
                             <!-- <p class="timeline__timeframe">July 2011 - June 2015</p> -->
                             <h3 class="item-title"><b>Data Training</b></h3>
-                            <h5>Data item yang telah diberi rating oleh target user yang didapatkan dari dataset <b> {{ banyak_data_train }} </b></h5>
+                            <h5>Data item yang telah diberi rating oleh target user yang didapatkan dari dataset <b> {{ data_train|length }} </b></h5>
                         </div>
                         <div class="timeline__desc datatrainscroll">
                             <ol>
