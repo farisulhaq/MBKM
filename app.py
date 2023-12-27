@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import joblib
 import pickle
-from sklearn.metrics import adjusted_mutual_info_score
 from IPython.display import HTML
 from flask import Flask, render_template, request, redirect, session
 from metode.sistemRekomendasi import *
